@@ -45,16 +45,23 @@ class AppController extends Controller {
 	}
 
 	public function getWidgets($page='') {
-		if(empty($page)) { $page = $_SERVER['REQUEST_URI']; }
-		if(strpos($_SERVER['REQUEST_URI'], 'questions/') == 1) { $page = '/questions/view'; }
+		if(empty($page)) { $page = Router::url(null, false); }
+		//if(strpos($_SERVER['REQUEST_URI'], 'questions/') == 1) { $page = '/questions/view'; }
 		$this->set('widgets', $this->Widget->findPage($page));
 	}
-	public function isAdmin($id='') {
+	
+	/**
+	 * Set class var admin to true if the user id is admin.
+	 * @param integer $id
+	 */
+	public function isAdmin( $id='') {
 		if(!$this->User->adminCheck($id, 'update')) {
 			$this->set('admin', true);
             return true;
+		} else {
+		    $this->set('admin', false);
+		    return false;
 		}
-        return false;
 	}
 	public function underMaintenance() {
 		$maintenance = $this->Setting->find('first', array('conditions' => array('name' => 'site_maintenance')));

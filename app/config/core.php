@@ -91,7 +91,7 @@
  * Turn off all caching application-wide.
  *
  */
-	//Configure::write('Cache.disable', true);
+	Configure::write('Cache.disable', true);
 
 /**
  * Enable cache checking.
@@ -245,7 +245,7 @@
  * If you are on PHP 5.3 uncomment this line and correct your server timezone
  * to fix the date & time related errors.
  */
-	//date_default_timezone_set('UTC');
+	date_default_timezone_set('UTC');
 
 /**
  *
@@ -307,3 +307,4 @@
 
     Configure::write('recaptcha.publickey', '6LcgswkAAAAAAC15Pg3j8YDKFCi-mHYO_qHpoPH6');
     Configure::write('recaptcha.privatekey', '6LcgswkAAAAAAApN8RkAjBhu2RgDGXGwh5onuUpW');
+    Configure::write('Config.language', 'eng');
