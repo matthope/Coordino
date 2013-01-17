@@ -90,6 +90,8 @@ if (file_exists(TMP.'installed.txt')) {
 	Router::connect('/questions/:public_key/comment', array('controller' => 'comments', 'action' => 'comment'), array('pass' => array('public_key'), 'public_key' => '[A-z0-9-]+'));
 	Router::connect('/questions/:public_key/correct', array('controller' => 'posts', 'action' => 'markCorrect'), array('pass' => array('public_key'), 'public_key' => '[A-z0-9-]+'));
 	Router::connect('/questions/:public_key/:title', array('controller' => 'posts', 'action' => 'view'), array('pass' => array('public_key'), 'public_key' => '[A-z0-9-]+'));
+	Router::connect('/questions/:public_key', array('controller' => 'posts', 'action' => 'view'), array('pass' => array('public_key'), 'public_key' => '[A-z0-9-]+'));
+	Router::connect('/q/:public_key', array('controller' => 'posts', 'action' => 'view'), array('pass' => array('public_key'), 'public_key' => '[A-z0-9-]+'));
 	Router::connect('/answers/:public_key/edit', array('controller' => 'posts', 'action' => 'edit'), array('pass' => array('public_key'), 'public_key' => '[A-z0-9-]+'));
 
 	Router::connect('/tags/:tag', array('controller' => 'tags', 'action' => 'find_tag'), array('pass' => array('tag'), 'tag' => '[A-z0-9-]+'));
