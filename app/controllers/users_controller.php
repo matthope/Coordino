@@ -69,9 +69,9 @@ class UsersController extends AppController {
 				$this->User->save($this->data);
 				$this->set('user', $email_exists);
 				$this->set('password', $pass);
-				$this->Email->from = 'Engine Juice <sam@bravegamer.com>';
+				$this->Email->from = 'Answerman <answers@' . $_SERVER['SERVER_NAME'] . '>'; /* TODO: ideally, this would come from settings */
                 $this->Email->to = $email_exists['User']['email'];
-                $this->Email->subject = 'Engine Juice password recovery.';
+                $this->Email->subject = 'Answers password recovery.'; /* TODO: again, it'd be prefered if the site 'name' came from settings */
                 $this->Email->template = 'recovery';
                 $this->Email->sendAs = 'both';
                 $this->Email->send();
