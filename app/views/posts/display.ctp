@@ -82,7 +82,7 @@ foreach($questions as $question) { ?>
 <?php }
 if(isset($next)) { ?>
     <span class="right"><a href="/search/type:<?=$type;?>/page:<?=$next;?>/search:<?=$search;?>">&nbsp;&nbsp;Next >></a></span>
-<?
+<?php
 }
 if(isset($previous)) { ?>
     <span class="right"><a href="/search/type:<?=$type;?>/page:<?=$previous;?>/search:<?=$search;?>"><< Previous&nbsp;&nbsp;</a></span>
